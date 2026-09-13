@@ -1,0 +1,75 @@
+version: 2
+
+seeds:
+  - name: raw_events_ama
+    description: Synthetic AMA product events supplied with the case. Known source anomalies remain visible.
+  - name: raw_feedback_ama
+    description: Synthetic user feedback supplied with the case, including known duplicates, invalid ratings and orphan references.
+  - name: raw_users
+    description: Synthetic user dimension supplied with the case.
+  - name: raw_workspaces
+    description: Synthetic workspace dimension supplied with the case.
+
+models:
+  - name: stg_events_ama
+    description: "{{ doc('stg_events_ama') }}"
+    columns:
+      - name: event_id
+        description: Stable identifier for an AMA response event.
+        data_tests: [unique, not_null]
+      - name: user_id
+        description: User associated with the event.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_users')
+                field: user_id
+      - name: module_tag
+        description: Canonical legal module label after case and synonym normalization.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [civile, penale, tributario, lavoro, amministrativo, societario]
+
+  - name: stg_feedback_ama
+    description: "{{ doc('stg_feedback_ama') }}"
+    columns:
+      - name: feedback_id
+        description: Stable identifier for one feedback record.
+        data_tests: [unique, not_null]
+      - name: event_id
+        description: AMA event referenced by the feedback. Known orphan source rows are retained.
+        data_tests: [not_null]
+      - name: thumbs
+        description: Clean feedback value. Only -1 and 1 are valid; all other source values become null.
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [-1, 1]
+              config:
+                where: "thumbs is not null"
+
+  - name: stg_users
+    description: "{{ doc('stg_users') }}"
+    columns:
+      - name: user_id
+        description: Stable user identifier.
+        data_tests: [unique, not_null]
+      - name: workspace_id
+        description: Source workspace association. A small number of missing parents remain visible as source warnings.
+        data_tests: [not_null]
+
+  - name: stg_workspaces
+    description: "{{ doc('stg_workspaces') }}"
+    columns:
+      - name: workspace_id
+        description: Stable workspace identifier.
+        data_tests: [unique, not_null]
+      - name: country
+        description: ISO-like country code or UNKNOWN when the source field is missing.
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [IT, DE, ES, UNKNOWN]

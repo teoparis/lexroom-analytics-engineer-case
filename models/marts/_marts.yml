@@ -1,0 +1,75 @@
+version: 2
+
+models:
+  - name: mart_ama_module_weekly
+    description: "{{ doc('mart_ama_module_weekly') }}"
+    columns:
+      - name: week_start
+        description: Monday starting the reporting week.
+        data_tests: [not_null]
+      - name: week_end
+        description: Sunday ending the reporting week.
+      - name: dataset_anchor_date
+        description: Maximum valid event date in the supplied snapshot; makes the rolling window reproducible.
+      - name: is_calendar_complete_week
+        description: True when the dataset reaches the Sunday boundary for this reporting week. It does not guarantee expected source volume or source freshness.
+      - name: module_tag
+        description: Canonical legal module.
+        data_tests: [not_null]
+      - name: event_count
+        description: AMA events in the module-week.
+      - name: positive_feedback_count
+        description: Received valid feedback records with thumbs equal to 1.
+      - name: critical_issue_count
+        description: Received valid feedback records tagged wrong_answer or hallucination.
+      - name: feedback_coverage
+        description: Share of AMA events with at least one valid feedback record.
+      - name: positive_feedback_rate
+        description: Share of received valid feedback that is positive. This is not the share of all users who are satisfied.
+      - name: critical_issue_rate
+        description: Share of valid feedback tagged wrong_answer or hallucination.
+      - name: latency_slo_rate
+        description: Share of events with valid latency at or below the provisional 5-second case threshold.
+  - name: mart_workspace_health
+    description: "{{ doc('mart_workspace_health') }}"
+    columns:
+      - name: workspace_id
+        description: Unique known workspace.
+        data_tests: [unique, not_null]
+      - name: risk_score
+        description: "{{ doc('workspace_risk_score') }}"
+      - name: risk_confidence
+        description: Evidence-volume category based on events and valid feedback in both comparison windows.
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [high, medium, low]
+      - name: plan
+        description: Commercial context kept outside the health score.
+      - name: dataset_anchor_date
+        description: Maximum valid event date used to anchor both four-week comparison windows.
+      - name: previous_period_start
+        description: First day of the previous four-week comparison period.
+      - name: previous_period_end
+        description: Last day of the previous four-week comparison period.
+      - name: recent_period_start
+        description: First day of the recent four-week comparison period.
+      - name: recent_period_end
+        description: Last day of the recent four-week comparison period.
+
+  - name: mart_ama_quality_weekly
+    description: "{{ doc('mart_ama_quality_weekly') }}"
+    columns:
+      - name: week_start
+        description: Monday starting the reporting week.
+        data_tests: [unique, not_null]
+      - name: week_end
+        description: Sunday ending the reporting week.
+      - name: dataset_anchor_date
+        description: Maximum valid event date in the supplied snapshot; makes the eight-week view reproducible.
+      - name: is_calendar_complete_week
+        description: True when the snapshot reaches the Sunday boundary. A complete calendar boundary does not guarantee normal source volume.
+      - name: ama_quality_score
+        description: "{{ doc('ama_quality_score') }}"
+      - name: feedback_coverage
+        description: Share of AMA events with valid feedback, shown as a measurement guardrail.

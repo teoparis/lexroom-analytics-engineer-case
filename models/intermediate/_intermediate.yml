@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: int_ama_events_enriched
+    description: "{{ doc('int_ama_events_enriched') }}"
+    columns:
+      - name: event_id
+        description: Unique AMA event identifier.
+        data_tests: [unique, not_null]
+      - name: user_id
+        description: User identifier inherited from the event.
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_users')
+                field: user_id
+      - name: workspace_id
+        description: Workspace identifier inherited from the event. Some source IDs have no matching workspace dimension row.
+      - name: valid_feedback_count
+        description: Number of feedback rows for the event with a valid -1 or 1 thumbs value.
+      - name: critical_issue_count
+        description: Valid feedback rows tagged wrong_answer or hallucination.

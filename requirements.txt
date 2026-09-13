@@ -1,0 +1,8 @@
+dbt-core==1.10.11
+dbt-duckdb==1.9.6
+duckdb==1.4.0
+pandas==2.3.2
+plotly==6.3.0
+streamlit==1.49.1
+PyYAML==6.0.2
+reportlab==4.4.3

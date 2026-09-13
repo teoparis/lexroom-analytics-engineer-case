@@ -1,0 +1,32 @@
+version: 2
+
+exposures:
+  - name: product_ama_quality_analysis
+    label: Product AMA Quality Analysis
+    type: analysis
+    maturity: high
+    description: Weekly module evidence used to prioritize Product investigation by severity, reach and confidence.
+    depends_on:
+      - ref('mart_ama_module_weekly')
+    owner:
+      name: Analytics Engineering
+
+  - name: customer_success_workspace_health
+    label: Customer Success Workspace Health
+    type: analysis
+    maturity: medium
+    description: Workspace deterioration queue with separate confidence and commercial context.
+    depends_on:
+      - ref('mart_workspace_health')
+    owner:
+      name: Analytics Engineering
+
+  - name: leadership_ama_quality_north_star
+    label: Leadership AMA Quality North Star
+    type: analysis
+    maturity: high
+    description: Eight-week AMA Quality Score with components and feedback-coverage guardrails.
+    depends_on:
+      - ref('mart_ama_quality_weekly')
+    owner:
+      name: Analytics Engineering

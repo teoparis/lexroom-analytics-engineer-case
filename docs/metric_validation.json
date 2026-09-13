@@ -1,0 +1,365 @@
+{
+  "status": "passed",
+  "independent_engine": "pandas",
+  "dbt_engine": "DuckDB",
+  "methodology": {
+    "product_uncertainty": "95% Newcombe-Wilson interval for recent minus previous independent feedback proportions",
+    "interpretation": "descriptive; feedback is self-selected and module comparisons are not multiplicity-adjusted"
+  },
+  "time_window": {
+    "dataset_anchor_date": "2026-04-19",
+    "anchor_week_start": "2026-04-13",
+    "anchor_is_calendar_week_end": true,
+    "previous_4w_start": "2026-02-23",
+    "previous_4w_end": "2026-03-22",
+    "recent_4w_start": "2026-03-23",
+    "recent_4w_end": "2026-04-19"
+  },
+  "checks": {
+    "quality_weeks_checked": 8,
+    "module_week_rows_checked": 48,
+    "workspace_rows_checked": 80,
+    "workspace_scores_checked": 43
+  },
+  "quality_trend": [
+    {
+      "week_start": "2026-02-23",
+      "week_end": "2026-03-01",
+      "event_count": 1714,
+      "valid_feedback_count": 448,
+      "feedback_coverage": 0.261377,
+      "positive_feedback_rate": 0.712054,
+      "critical_issue_avoidance_rate": 0.854911,
+      "latency_slo_rate": 0.936295,
+      "ama_quality_score": 79.975891
+    },
+    {
+      "week_start": "2026-03-02",
+      "week_end": "2026-03-08",
+      "event_count": 1492,
+      "valid_feedback_count": 394,
+      "feedback_coverage": 0.264075,
+      "positive_feedback_rate": 0.766497,
+      "critical_issue_avoidance_rate": 0.906091,
+      "latency_slo_rate": 0.946837,
+      "ama_quality_score": 84.444357
+    },
+    {
+      "week_start": "2026-03-09",
+      "week_end": "2026-03-15",
+      "event_count": 1180,
+      "valid_feedback_count": 317,
+      "feedback_coverage": 0.268644,
+      "positive_feedback_rate": 0.769716,
+      "critical_issue_avoidance_rate": 0.911672,
+      "latency_slo_rate": 0.937128,
+      "ama_quality_score": 84.578528
+    },
+    {
+      "week_start": "2026-03-16",
+      "week_end": "2026-03-22",
+      "event_count": 989,
+      "valid_feedback_count": 278,
+      "feedback_coverage": 0.281092,
+      "positive_feedback_rate": 0.744604,
+      "critical_issue_avoidance_rate": 0.899281,
+      "latency_slo_rate": 0.940102,
+      "ama_quality_score": 83.010664
+    },
+    {
+      "week_start": "2026-03-23",
+      "week_end": "2026-03-29",
+      "event_count": 840,
+      "valid_feedback_count": 229,
+      "feedback_coverage": 0.272619,
+      "positive_feedback_rate": 0.663755,
+      "critical_issue_avoidance_rate": 0.868996,
+      "latency_slo_rate": 0.946108,
+      "ama_quality_score": 78.179798
+    },
+    {
+      "week_start": "2026-03-30",
+      "week_end": "2026-04-05",
+      "event_count": 552,
+      "valid_feedback_count": 142,
+      "feedback_coverage": 0.257246,
+      "positive_feedback_rate": 0.633803,
+      "critical_issue_avoidance_rate": 0.809859,
+      "latency_slo_rate": 0.934664,
+      "ama_quality_score": 74.6792
+    },
+    {
+      "week_start": "2026-04-06",
+      "week_end": "2026-04-12",
+      "event_count": 322,
+      "valid_feedback_count": 84,
+      "feedback_coverage": 0.26087,
+      "positive_feedback_rate": 0.654762,
+      "critical_issue_avoidance_rate": 0.833333,
+      "latency_slo_rate": 0.940994,
+      "ama_quality_score": 76.557971
+    },
+    {
+      "week_start": "2026-04-13",
+      "week_end": "2026-04-19",
+      "event_count": 102,
+      "valid_feedback_count": 20,
+      "feedback_coverage": 0.196078,
+      "positive_feedback_rate": 0.5,
+      "critical_issue_avoidance_rate": 0.7,
+      "latency_slo_rate": 0.911765,
+      "ama_quality_score": 64.235294
+    }
+  ],
+  "product_window_comparison": [
+    {
+      "module_tag": "amministrativo",
+      "previous_event_count": 267,
+      "recent_event_count": 75,
+      "previous_valid_feedback_count": 72,
+      "recent_valid_feedback_count": 18,
+      "previous_positive_feedback_rate": 0.680556,
+      "recent_positive_feedback_rate": 0.5,
+      "positive_rate_change_pp": -18.056,
+      "positive_rate_change_95ci_pp": [
+        -41.125,
+        5.835
+      ],
+      "critical_issue_rate_change_pp": 15.278,
+      "evidence_interpretation": "directional only"
+    },
+    {
+      "module_tag": "societario",
+      "previous_event_count": 825,
+      "recent_event_count": 279,
+      "previous_valid_feedback_count": 228,
+      "recent_valid_feedback_count": 74,
+      "previous_positive_feedback_rate": 0.741228,
+      "recent_positive_feedback_rate": 0.594595,
+      "positive_rate_change_pp": -14.663,
+      "positive_rate_change_95ci_pp": [
+        -27.2,
+        -2.588
+      ],
+      "critical_issue_rate_change_pp": 12.008,
+      "evidence_interpretation": "supported deterioration"
+    },
+    {
+      "module_tag": "tributario",
+      "previous_event_count": 499,
+      "recent_event_count": 191,
+      "previous_valid_feedback_count": 127,
+      "recent_valid_feedback_count": 50,
+      "previous_positive_feedback_rate": 0.732283,
+      "recent_positive_feedback_rate": 0.62,
+      "positive_rate_change_pp": -11.228,
+      "positive_rate_change_95ci_pp": [
+        -26.717,
+        3.475
+      ],
+      "critical_issue_rate_change_pp": -0.598,
+      "evidence_interpretation": "directional only"
+    },
+    {
+      "module_tag": "civile",
+      "previous_event_count": 2197,
+      "recent_event_count": 789,
+      "previous_valid_feedback_count": 569,
+      "recent_valid_feedback_count": 203,
+      "previous_positive_feedback_rate": 0.762742,
+      "recent_positive_feedback_rate": 0.660099,
+      "positive_rate_change_pp": -10.264,
+      "positive_rate_change_95ci_pp": [
+        -17.791,
+        -3.093
+      ],
+      "critical_issue_rate_change_pp": 5.57,
+      "evidence_interpretation": "supported deterioration"
+    },
+    {
+      "module_tag": "lavoro",
+      "previous_event_count": 1070,
+      "recent_event_count": 319,
+      "previous_valid_feedback_count": 285,
+      "recent_valid_feedback_count": 74,
+      "previous_positive_feedback_rate": 0.722807,
+      "recent_positive_feedback_rate": 0.648649,
+      "positive_rate_change_pp": -7.416,
+      "positive_rate_change_95ci_pp": [
+        -19.781,
+        3.891
+      ],
+      "critical_issue_rate_change_pp": 2.636,
+      "evidence_interpretation": "directional only"
+    },
+    {
+      "module_tag": "penale",
+      "previous_event_count": 517,
+      "recent_event_count": 163,
+      "previous_valid_feedback_count": 156,
+      "recent_valid_feedback_count": 56,
+      "previous_positive_feedback_rate": 0.775641,
+      "recent_positive_feedback_rate": 0.732143,
+      "positive_rate_change_pp": -4.35,
+      "positive_rate_change_95ci_pp": [
+        -18.427,
+        7.812
+      ],
+      "critical_issue_rate_change_pp": 1.099,
+      "evidence_interpretation": "directional only"
+    }
+  ],
+  "workspace_summary": {
+    "risk_confidence_counts": {
+      "low": 52,
+      "high": 16,
+      "medium": 12
+    },
+    "top_raw_risk_signals": [
+      {
+        "workspace_id": "ws_0052",
+        "risk_score": 55.201,
+        "risk_confidence": "low",
+        "recent_event_count": 1,
+        "previous_event_count": 4,
+        "recent_valid_feedback_count": 1,
+        "previous_valid_feedback_count": 1,
+        "satisfaction_deterioration": 1.0,
+        "performance_deterioration": 0,
+        "relative_engagement_deterioration": 0.26005
+      },
+      {
+        "workspace_id": "ws_0077",
+        "risk_score": 32.705,
+        "risk_confidence": "medium",
+        "recent_event_count": 34,
+        "previous_event_count": 118,
+        "recent_valid_feedback_count": 9,
+        "previous_valid_feedback_count": 28,
+        "satisfaction_deterioration": 0.595238,
+        "performance_deterioration": 0,
+        "relative_engagement_deterioration": 0.147176
+      },
+      {
+        "workspace_id": "ws_0004",
+        "risk_score": 28.333,
+        "risk_confidence": "medium",
+        "recent_event_count": 13,
+        "previous_event_count": 29,
+        "recent_valid_feedback_count": 3,
+        "previous_valid_feedback_count": 10,
+        "satisfaction_deterioration": 0.566667,
+        "performance_deterioration": 0,
+        "relative_engagement_deterioration": 0
+      },
+      {
+        "workspace_id": "ws_0041",
+        "risk_score": 26.79,
+        "risk_confidence": "high",
+        "recent_event_count": 213,
+        "previous_event_count": 635,
+        "recent_valid_feedback_count": 56,
+        "previous_valid_feedback_count": 166,
+        "satisfaction_deterioration": 0.532917,
+        "performance_deterioration": 0,
+        "relative_engagement_deterioration": 0.007185
+      },
+      {
+        "workspace_id": "ws_0051",
+        "risk_score": 24.591,
+        "risk_confidence": "high",
+        "recent_event_count": 33,
+        "previous_event_count": 101,
+        "recent_valid_feedback_count": 11,
+        "previous_valid_feedback_count": 26,
+        "satisfaction_deterioration": 0.458042,
+        "performance_deterioration": 0.034344,
+        "relative_engagement_deterioration": 0.032936
+      },
+      {
+        "workspace_id": "ws_0026",
+        "risk_score": 20.722,
+        "risk_confidence": "medium",
+        "recent_event_count": 16,
+        "previous_event_count": 49,
+        "recent_valid_feedback_count": 6,
+        "previous_valid_feedback_count": 16,
+        "satisfaction_deterioration": 0.375,
+        "performance_deterioration": 0.043367,
+        "relative_engagement_deterioration": 0.033534
+      },
+      {
+        "workspace_id": "ws_0064",
+        "risk_score": 18.167,
+        "risk_confidence": "low",
+        "recent_event_count": 12,
+        "previous_event_count": 31,
+        "recent_valid_feedback_count": 2,
+        "previous_valid_feedback_count": 12,
+        "satisfaction_deterioration": 0.333333,
+        "performance_deterioration": 0.05,
+        "relative_engagement_deterioration": 0
+      },
+      {
+        "workspace_id": "ws_0034",
+        "risk_score": 14.01,
+        "risk_confidence": "low",
+        "recent_event_count": 4,
+        "previous_event_count": 22,
+        "recent_valid_feedback_count": 2,
+        "previous_valid_feedback_count": 5,
+        "satisfaction_deterioration": 0,
+        "performance_deterioration": 0.159091,
+        "relative_engagement_deterioration": 0.461854
+      },
+      {
+        "workspace_id": "ws_0056",
+        "risk_score": 10.134,
+        "risk_confidence": "low",
+        "recent_event_count": 1,
+        "previous_event_count": 6,
+        "recent_valid_feedback_count": 1,
+        "previous_valid_feedback_count": 1,
+        "satisfaction_deterioration": 0,
+        "performance_deterioration": 0,
+        "relative_engagement_deterioration": 0.5067
+      },
+      {
+        "workspace_id": "ws_0066",
+        "risk_score": 10.0,
+        "risk_confidence": "medium",
+        "recent_event_count": 28,
+        "previous_event_count": 68,
+        "recent_valid_feedback_count": 3,
+        "previous_valid_feedback_count": 15,
+        "satisfaction_deterioration": 0.2,
+        "performance_deterioration": 0,
+        "relative_engagement_deterioration": 0
+      },
+      {
+        "workspace_id": "ws_0031",
+        "risk_score": 9.825,
+        "risk_confidence": "medium",
+        "recent_event_count": 19,
+        "previous_event_count": 33,
+        "recent_valid_feedback_count": 3,
+        "previous_valid_feedback_count": 5,
+        "satisfaction_deterioration": 0.133333,
+        "performance_deterioration": 0.105263,
+        "relative_engagement_deterioration": 0
+      },
+      {
+        "workspace_id": "ws_0043",
+        "risk_score": 9.702,
+        "risk_confidence": "medium",
+        "recent_event_count": 13,
+        "previous_event_count": 42,
+        "recent_valid_feedback_count": 4,
+        "previous_valid_feedback_count": 11,
+        "satisfaction_deterioration": 0.068182,
+        "performance_deterioration": 0.153846,
+        "relative_engagement_deterioration": 0.083871
+      }
+    ]
+  }
+}

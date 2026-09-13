@@ -1,0 +1,17 @@
+.venv/
+.env
+*.duckdb
+*.duckdb.wal
+target/
+logs/
+dbt_packages/
+__pycache__/
+.pytest_cache/
+.DS_Store
+dashboard/.streamlit/secrets.toml
+docs/rendered/
+work/
+node_modules
+.codex-finalizer/
+.chart-data-*/
+.user.yml

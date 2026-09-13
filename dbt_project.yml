@@ -1,0 +1,26 @@
+name: lexroom_analytics
+version: 1.0.0
+config-version: 2
+
+profile: lexroom_analytics
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  lexroom_analytics:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table
+
+seeds:
+  lexroom_analytics:
+    +quote_columns: false

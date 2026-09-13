@@ -1,0 +1,35 @@
+name: dbt CI
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Reproduce source profile
+        run: python scripts/profile_data.py
+      - name: Seed DuckDB
+        run: dbt seed --profiles-dir .
+      - name: Build and test analytical contracts
+        run: dbt build --profiles-dir .
+      - name: Independently validate core metrics
+        run: python scripts/validate_metrics.py
+      - name: Generate dbt documentation
+        run: dbt docs generate --profiles-dir .
+      - name: Verify committed audit receipts are current
+        run: git diff --exit-code -- docs/data_profile.json docs/metric_validation.json

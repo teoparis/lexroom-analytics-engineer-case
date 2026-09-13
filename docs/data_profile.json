@@ -1,0 +1,87 @@
+{
+  "raw_rows": {
+    "events": 11005,
+    "feedback": 3035,
+    "users": 690,
+    "workspaces": 80
+  },
+  "unique_rows": {
+    "events": 11000,
+    "feedback": 3020,
+    "users": 690,
+    "workspaces": 80
+  },
+  "quality_findings": {
+    "duplicate_event_rows": 5,
+    "duplicate_feedback_rows": 15,
+    "orphan_feedback_after_dedup": 50,
+    "invalid_thumbs_after_dedup": 16,
+    "negative_latency_after_dedup": 33,
+    "zero_retrieved_chunks_after_dedup": 66,
+    "users_with_missing_workspace": 3,
+    "events_with_missing_workspace": 8,
+    "workspaces_with_missing_country": 3,
+    "events_before_user_created_at": 817,
+    "events_before_workspace_signup": 597,
+    "events_with_temporal_warning": 1380,
+    "events_with_multiple_feedback": 0,
+    "conflicting_duplicate_event_groups": 0,
+    "conflicting_duplicate_feedback_groups": 0,
+    "deleted_users": 26,
+    "events_from_deleted_users": 0,
+    "unexpected_canonical_modules": []
+  },
+  "latency_diagnostics": {
+    "valid_900_second_events": 28,
+    "cached_median_ms": 119.0,
+    "non_cached_median_ms": 3223.0
+  },
+  "event_date_range": {
+    "min": "2026-02-02T00:09:53.877874+00:00",
+    "max": "2026-04-19T23:02:30.722016+00:00"
+  },
+  "raw_module_values": {
+    "AMMINISTRATIVO": 3,
+    "Amministrativo": 4,
+    "CIVILE": 33,
+    "Civile": 34,
+    "LAVORO": 19,
+    "Lavoro": 16,
+    "PENALE": 6,
+    "Penale": 8,
+    "SOCIETARIO": 10,
+    "Societario": 13,
+    "TRIBUTARIO": 10,
+    "Tributario": 5,
+    "amministrativo": 519,
+    "civil": 85,
+    "civile": 4391,
+    "lavoro": 2092,
+    "penale": 1058,
+    "societario": 1637,
+    "tributario": 1057
+  },
+  "canonical_module_counts": {
+    "amministrativo": 526,
+    "civile": 4543,
+    "lavoro": 2127,
+    "penale": 1072,
+    "societario": 1660,
+    "tributario": 1072
+  },
+  "thumbs_values": {
+    "-2": 5,
+    "-1": 828,
+    "0": 4,
+    "1": 2176,
+    "2": 7
+  },
+  "reason_tag_values": {
+    "<null>": 2365,
+    "wrong_answer": 239,
+    "incomplete": 190,
+    "hallucination": 112,
+    "slow": 60,
+    "other": 54
+  }
+}
